@@ -34,4 +34,4 @@ jobs:
           context: .
           platforms: linux/amd64
           push: true
-          tags: m1968/debian-qt-arm32v7:bookworm-qt6.5.3
+          tags: mb1986/debian-qt-arm32v7:bookworm-qt6.5.3
