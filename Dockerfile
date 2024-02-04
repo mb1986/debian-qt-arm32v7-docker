@@ -4,7 +4,7 @@ ENV LC_ALL C.UTF-8
 RUN apt-get update \
     && apt-get install -y build-essential ninja-build generate-ninja libts-dev wget python3 cmake libdrm-dev libgles2-mesa-dev
 WORKDIR /root
-RUN wget https://download.qt.io/official_releases/qt/6.5/6.5.3/single/qt-everywhere-src-6.5.3.tar.xz \
+RUN wget --progress=dot:giga https://download.qt.io/official_releases/qt/6.5/6.5.3/single/qt-everywhere-src-6.5.3.tar.xz \
     && tar xf ./qt-everywhere-src-6.5.3.tar.xz
 RUN ./qt-everywhere-src-6.5.3/configure -prefix /usr/local/Qt6 \
     && cmake --build . --parallel \
