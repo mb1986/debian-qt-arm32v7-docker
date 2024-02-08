@@ -2,6 +2,23 @@ name: docker buildx
 
 on:
   workflow_dispatch:
+    inputs:
+      debian-ver:
+        type: string
+        description: Debian Version
+        default: bookworm
+      qt-ver-major:
+        type: string
+        description: Qt Version Major
+        default: "6"
+      qt-ver-minor:
+        type: string
+        description: Qt Version Minor
+        default: "5"
+      qt-ver-patch:
+        type: string
+        description: Qt Version Patch
+        default: "3"
 
 # on:
 #   push:
@@ -33,6 +50,11 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
+          build-args: |
+            DEBIAN_VER=${{ github.event.inputs.debian-ver }}
+            QT_VER_MAJOR=${{ github.event.inputs.qt-ver-major }}
+            QT_VER_MINOR=${{ github.event.inputs.qt-ver-minor }}
+            QT_VER_PATCH=${{ github.event.inputs.qt-ver-patch }}
           platforms: linux/amd64
           push: true
           tags: mb1986/debian-qt-arm32v7:bookworm-qt6.5.3
