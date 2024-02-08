@@ -58,3 +58,5 @@ jobs:
           platforms: linux/amd64
           push: true
           tags: mb1986/debian-qt-arm32v7:bookworm-qt6.5.3
+          cache-from: type=registry,ref=mb1986/debian-qt-arm32v7:buildcache
+          cache-to: type=registry,ref=mb1986/debian-qt-arm32v7:buildcache,mode=max
